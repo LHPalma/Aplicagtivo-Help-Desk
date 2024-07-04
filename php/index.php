@@ -21,12 +21,7 @@ session_start();
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">
-      <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      App Help Desk
-    </a>
-  </nav>
+  <?php include 'navbar.php' ?>
 
   <div class="container">
     <div class="row">
@@ -45,13 +40,13 @@ session_start();
                 <input name="senha" type="password" class="form-control" placeholder="Senha">
               </div>
 
-              <?php if (isset($_GET['login']) && $_GET['login'] == 'erro' ) { ?>
+              <?php if (isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
                 <div class="text-danger">
                   Usuário ou senha inválido(s)!
                 </div>
               <?php } ?>
-              
-              <?php if (isset($_GET['login']) && $_GET['login'] == 'erro2' ) { ?>
+
+              <?php if (isset($_GET['login']) && $_GET['login'] == 'erro2') { ?>
                 <div class="text-danger">
                   Faça login antes de acessar as páginas protegidas.
                 </div>
