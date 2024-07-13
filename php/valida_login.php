@@ -1,3 +1,10 @@
+/*
+    Configurações para segurança do back-end
+    </php
+        require "../../app_help_desk_privado/valida_login.php"
+    ?>
+*/
+
 <?php session_start();
 
 define('SEPARADOR', " | ");

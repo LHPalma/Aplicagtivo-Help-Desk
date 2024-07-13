@@ -28,6 +28,9 @@ function gravaDados($nome_arquivo, $texto)
     fwrite($arquivo, $texto);
     fclose($arquivo);
 }
-
+/*
+    Configurações para segurança do back-end
+    gravaDados('../../app_help_desk_privado/arquivo.hd', recebe_e_ProcessaDados());
+*/
 gravaDados('arquivo.hd', recebe_e_ProcessaDados());
 header('Location: abrir_chamado.php');

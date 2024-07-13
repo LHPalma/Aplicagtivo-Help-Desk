@@ -2,6 +2,10 @@
 <?php
 $chamados = array();
 
+/*
+  Configurações para segurança do back-end
+  $arquivo = fopen('../../app_help_desk_privado/arquivo.hd', 'r');
+*/
 $arquivo = fopen('arquivo.hd', 'r');
 
 while (!feof($arquivo)) {
