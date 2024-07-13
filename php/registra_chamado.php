@@ -1,21 +1,25 @@
 <?php
 session_start();
-define('SEPARADOR', " | ");
-define('SEP_ALTERNATIVO', " - ");
-$_SESSION['SEPARADOR'] = SEPARADOR;
+
 
 function recebe_e_ProcessaDados()
 {
     $titulo = removeSeparador($_POST['titulo']);
     $categoria = removeSeparador($_POST['categoria']);
     $descricao = removeSeparador($_POST['descricao']);
-    $texto = $titulo . SEPARADOR . $categoria .  SEPARADOR . $descricao . PHP_EOL;
+    $texto = $_SESSION['id'] . $_SESSION['SEPARADOR'] . $titulo . $_SESSION['SEPARADOR'] . $categoria .  $_SESSION['SEPARADOR'] . $descricao . PHP_EOL;
     return $texto;
 }
 
-function removeSeparador($str, $separador = SEPARADOR, $sep_alternativo = SEP_ALTERNATIVO)
+function removeSeparador($str, $separador = null, $sep_alternativo = null)
 {
-    return str_replace(SEPARADOR, SEP_ALTERNATIVO, $str);
+    if ($separador === null) {
+        $separador = $_SESSION['SEPARADOR'];
+    }
+    if ($sep_alternativo === null) {
+        $sep_alternativo = $_SESSION['SEP_ALTERNATIVO'];
+    }
+    return str_replace($separador, $sep_alternativo, $str);
 }
 
 function gravaDados($nome_arquivo, $texto)
